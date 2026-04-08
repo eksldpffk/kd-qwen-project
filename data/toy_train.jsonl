@@ -1,0 +1,4 @@
+{"instruction": "Complete the sentence in a sensible way.", "input": "To make tea, boil water, then", "output": "add the tea leaves and pour the water into a cup."}
+{"instruction": "Answer briefly.", "input": "What is knowledge distillation?", "output": "Knowledge distillation trains a small student model to imitate a larger teacher model."}
+{"instruction": "Solve the math problem.", "input": "What is 7 + 5?", "output": "12"}
+{"instruction": "Answer briefly.", "input": "What does KL divergence measure?", "output": "It measures how different one probability distribution is from another."}
