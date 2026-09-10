@@ -3,6 +3,7 @@
 This project is the **first stage only**: train a student language model with **knowledge distillation (KD)** using L = α L<sub>CE</sub> + (1-α)L<sub>KD</sub> with:
 - L<sub>CE</sub> = -ln p<sub>S</sub>(y<sub>true</sub>), 
 - L<sub>KD</sub> = T<sup>2</sup> KL(p<sub>T</sub><sup>T</sup>||p<sub>S</sub><sup>T</sup>)
+
 where:
 - `P_T` = teacher distribution
 - `P_S` = student distribution
