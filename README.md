@@ -156,3 +156,17 @@ Once KD works, the clean next branch is:
 - `KD + REINFORCE`
 
 That way the RL stage starts from a student that is already distilled.
+
+## Results
+
+<img src="assets/KD_results.png" align="center" width="500">
+
+1. RL gave the strongest accuracy-based performance. It achieved the highest accuracy, top-2 accuracy, average correct probability, and margin.
+2. GRPO was a competitive second-best method. It clearly improved over the KD baseline, but it did not surpass RL on this task.
+3. DQN was not the best for raw accuracy, but it was the best-calibrated method. It had the best ECE and Brier score, which means its confidence estimates were much more reliable. DQN is the best choice when confidence quality and selective reliability matter
+
+**The final trade-off is:**
+● RL is the best choice for maximum accuracy.
+● DQN is the best choice when confidence quality and selective reliability matter.
+● GRPO stays close to RL, but does not outperform it in this setting
+
