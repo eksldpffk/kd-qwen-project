@@ -1,18 +1,8 @@
-# KD project scaffold for VS Code + Colab
+# Knowledge distillation (KD) project scaffold for VS Code + Colab
 
-This project is the **first stage only**: train a student language model with **knowledge distillation (KD)** using
-
-\[
-L = \alpha L_{CE} + (1-\alpha)L_{KD}
-\]
-
-with
-
-\[
-L_{CE} = -\ln p(y_{true}), \qquad
-L_{KD} = KL(P_T \parallel P_S)
-\]
-
+This project is the **first stage only**: train a student language model with **knowledge distillation (KD)** using L = α L<sub>CE</sub> + (1-α)L<sub>KD</sub> with:
+- L<sub>CE</sub> = -ln p<sub>S</sub>(y<sub>true</sub>), 
+- L<sub>KD</sub> = T<sup>2</sup> KL(p<sub>T</sub><sup>T</sup>||p<sub>S</sub><sup>T</sup>)
 where:
 - `P_T` = teacher distribution
 - `P_S` = student distribution
@@ -158,12 +148,13 @@ Once KD works, the clean next branch is:
 That way the RL stage starts from a student that is already distilled.
 
 ## Results
+<p align="center">
+   <img src="assets/KD_results.png" width="500">
+</p>
 
-<img src="assets/KD_results.png" align="center" width="500">
-
-1. RL gave the strongest accuracy-based performance. It achieved the highest accuracy, top-2 accuracy, average correct probability, and margin.
-2. GRPO was a competitive second-best method. It clearly improved over the KD baseline, but it did not surpass RL on this task.
-3. DQN was not the best for raw accuracy, but it was the best-calibrated method. It had the best ECE and Brier score, which means its confidence estimates were much more reliable. DQN is the best choice when confidence quality and selective reliability matter
+1. **RL** gave the strongest accuracy-based performance. It achieved the highest accuracy, top-2 accuracy, average correct probability, and margin.
+2. **GRPO** was a competitive second-best method. It clearly improved over the KD baseline, but it did not surpass RL on this task.
+3. **DQN** was not the best for raw accuracy, but it was the best-calibrated method. It had the best ECE and Brier score, which means its confidence estimates were much more reliable. DQN is the best choice when confidence quality and selective reliability matter
 
 **The final trade-off is:**
 ● RL is the best choice for maximum accuracy.
