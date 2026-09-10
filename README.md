@@ -168,7 +168,7 @@ That way the RL stage starts from a student that is already distilled.
 3. **DQN** was not the best for raw accuracy, but it was the best-calibrated method. It had the best ECE and Brier score, which means its confidence estimates were much more reliable. DQN is the best choice when confidence quality and selective reliability matter
 
 **The final trade-off is:**
-● RL is the best choice for maximum accuracy.
-● DQN is the best choice when confidence quality and selective reliability matter.
-● GRPO stays close to RL, but does not outperform it in this setting
+* RL is the best choice for maximum accuracy.
+* DQN is the best choice when confidence quality and selective reliability matter.
+* GRPO stays close to RL, but does not outperform it in this setting
 
