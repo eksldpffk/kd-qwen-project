@@ -30,21 +30,31 @@ kd_qwen_project/
    └─ train_kd.py
 ```
 
-## Input data format
+## Training stages
 
-The training script supports two JSONL formats.
+### Stage 1 - Knowledge Distillation
 
-### Option A: prompt/response
+The student model is first trained on instruction-style prompt/response data.
+
+Supported formats:
+
+#### Option A: prompt/response
 ```json
 {"prompt": "Explain KL divergence in simple words.", "response": "KL divergence measures how different one probability distribution is from another."}
 ```
 
-### Option B: instruction/input/output
+#### Option B: instruction/input/output
 ```json
 {"instruction": "Explain KL divergence in simple words.", "input": "", "output": "KL divergence measures how different one probability distribution is from another."}
 ```
-
 The script computes CE and KD **only on the assistant/response tokens**.
+
+### Stage 2 - Post-training
+
+The trained KD student is then used as the common starting point for RL, GRPO, and DQN experiments on CommonsenseQA.
+- Input: question + 5 answer options
+- Action: A / B / C / D / E
+- Reward: 1 for correct, 0 for wrong
 
 ## Recommended first model pair
 
